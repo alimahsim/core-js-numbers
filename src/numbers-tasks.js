@@ -50,7 +50,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -443,11 +443,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  const result = parseFloat(str);
-  if (Number.isNaN(result)) {
-    return NaN;
-  }
-  return result;
+  return Number.parseFloat(str);
 }
 
 /**
@@ -465,13 +461,8 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  const result = parseInt(str, base);
-  if (Number.isNaN(result)) {
-    return NaN;
-  }
-  return result;
+  return Number.parseInt(str, base);
 }
-
 /**
  * Returns whether a number is a safe integer.
  *
@@ -558,7 +549,7 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
-  return Math.add(x1, x2, x3);
+  return (x1 + x2 + x3).toFixed(1);
 }
 /**
  * Returns the largest number.
@@ -620,7 +611,7 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
- return Math.floor((number + 1) / 2);
+  return Math.ceil(Math.abs(number) / 2);
 }
 
 module.exports = {
